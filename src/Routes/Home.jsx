@@ -1,20 +1,18 @@
 import React from 'react'
 import Card from '../Components/Card'
-import { ContextGlobal } from '../Components/utils/global.context'
-import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { useContextGlobal } from "../Components/utils/global.context";
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
 const Home = () => {
-  const { state } = useContext(ContextGlobal);
-  const {theme, data} = state;
+const { dentistList } = useContextGlobal();
+
 
   return (
-    <main className={`${theme}`}>
+    <main>
       <h1>Home</h1>
       <div className='card-grid'>
-        {data.length ? data.map(dentist => (
+        {dentistList.map(dentist => (
         <Card 
           key={dentist.id}
           name={dentist.name}
@@ -22,7 +20,6 @@ const Home = () => {
           id={dentist.id}
         />
         ))
-        : null
         }
       </div>
     </main>

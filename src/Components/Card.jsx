@@ -1,21 +1,19 @@
-import React, { useState } from "react";
-import Favs from "../Routes/Favs";
 import { Link } from "react-router-dom";
+import { useContextGlobal } from "../Components/utils/global.context";
 
 
-const Card = ({ name, username, id }) => {
-  const [favorites, setFavorites] = useState([]);
 
-  const addFav = (event)=>{
-    event.stopPropagation();
-    localStorage.setItem('fav', JSON.stringify([...favorites, {name, username, id}]))
-    setFavorites([...favorites, {name, username, id}]);
-    // Aqui iria la logica para agregar la Card en el localStorage
-  }
+const Card = ({ name, username, id, dentist }) => {
+  //const {favDispatch} = useContextGlobal()
+  
+  const addFav = () => {
+    //favDispatch({type: 'ADD_FAV', payload: dentist})
+}
+  
 
   return (
     <div className="card">
-        <img src="./images/doctor.jpg" alt="" />
+        <img src="/images/doctor.jpg" alt="" />
         <h3>{name}</h3>
         <Link  to={`/dentist/${id}`}>
         <h3>{username}</h3>
