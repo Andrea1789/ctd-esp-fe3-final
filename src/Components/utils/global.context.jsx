@@ -3,39 +3,35 @@ import { createContext, useContext, useState, useReducer, useEffect } from "reac
 export const ContextGlobal = createContext();
 
 
-export const initialThemeState = "light"
+export const initialGlobalState = { theme: "light", favs: []}
+                                  
 
-const themeReducer = (state, action) => {
+const globalReducer = (state, action) => {
   switch (action.type) {
     case "TOGGLE_THEME":
-      return state === "light" ? "dark" : "light";
+      return { theme: state.theme === "light" ? "dark" : "light",
+               favs: state.favs
+              }
+      case 'ADD_FAV':
+        return { theme: state.theme,
+               favs: [...state.favs, action.payload]
+              }
         default:
-      return state.themeState;
+      return state;
   }
 };
 
-const initialFavState = JSON.parse(localStorage.getItem('favs')) || []
-
-const favReducer = (state, action) => {
-    switch(action.type){
-        case 'ADD_FAV':
-            return [...state, action.payload]
-        default:
-            throw new Error
-    }
-}
 
 
 export const Context = ({ children }) => {
 const [dentistList, setDentistList] = useState([])
 const url = 'https://jsonplaceholder.typicode.com/users'
 
-const [themeState, themeDispatch] = useReducer(themeReducer, initialThemeState);
-const [favState, favDispatch] = useReducer(favReducer, initialFavState)
+const [globalState, globalDispatch] = useReducer(globalReducer, initialGlobalState);
 
 useEffect(() => {
-  localStorage.setItem('favs', JSON.stringify(favState))
-}, [favState])
+    localStorage.setItem('favs', JSON.stringify(globalState.favs))
+}, [globalState.favs])
 
 
 useEffect(() => {
@@ -43,14 +39,13 @@ const fetchDentists = async () => {
     const res= await fetch(url);
     const data = await res.json();
     setDentistList(data)
-    //dispatch({ type: 'SET_DATA', payload: data });
 };
 fetchDentists()
 }, []);
 
 
   return (
-    <ContextGlobal.Provider value={{dentistList, setDentistList, themeState, themeDispatch, favState, favDispatch}}>
+    <ContextGlobal.Provider value={{dentistList, setDentistList, globalState, globalDispatch}}>
       {children}
     </ContextGlobal.Provider>
   );

@@ -4,26 +4,21 @@ import { useContextGlobal } from "../Components/utils/global.context";
 
 
 const Card = ({ name, username, id, dentist }) => {
-  //const {favDispatch} = useContextGlobal()
+  const {globalDispatch} = useContextGlobal()
   
   const addFav = () => {
-    //favDispatch({type: 'ADD_FAV', payload: dentist})
+    globalDispatch({type: 'ADD_FAV', payload: {...dentist, name, username}})
 }
   
 
   return (
     <div className="card">
+        <Link  to={`/dentist/${id}`}>
         <img src="/images/doctor.jpg" alt="" />
         <h3>{name}</h3>
-        <Link  to={`/dentist/${id}`}>
         <h3>{username}</h3>
-        </Link>
         <p>{id}</p>
-        {/* En cada card deberan mostrar en name - username y el id */}
-
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
+        </Link>
         <button onClick={addFav} className="favButton">Add fav⭐</button>
     </div>
   );

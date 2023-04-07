@@ -8,11 +8,11 @@ import Contact from "./Routes/Contact";
 import { useContextGlobal } from './Components/utils/global.context';
 
 function App() {
-const {themeState } = useContextGlobal();
+const {globalState } = useContextGlobal();
 
 
   return (
-      <div className={`${themeState}`}>
+      <div className={`${globalState.theme}`}>
           <Navbar/>
             <Routes>
               <Route path='/' element={<Home/>}/>
