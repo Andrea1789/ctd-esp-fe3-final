@@ -15,11 +15,11 @@ const Card = ({ name, username, id, dentist }) => {
     <div className="card">
         <Link  to={`/dentist/${id}`}>
         <img src="/images/doctor.jpg" alt="" />
-        <h3>{name}</h3>
-        <h3>{username}</h3>
+        <h5>{name}</h5>
+        <h5>{username}</h5>
         <p>{id}</p>
         </Link>
-        <button onClick={addFav} className="favButton">Add fav⭐</button>
+        <button onClick={addFav} className="favButton">Favorite ⭐</button>
     </div>
   );
 };

@@ -31,17 +31,17 @@ useEffect(() => {
   // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
 
   return (
-    <div>
+    <div className='detail'>
       <h1>Dentist {dentist?.name} </h1>
       <div className='card'>
             <img src="/images/doctor.jpg" alt="" />
-            <h3>{dentist?.name}</h3>
-            <p>Email: {dentist?.email}</p>
-            <p>Phone number: {dentist?.phone}</p>
+            <h5>{dentist?.name}</h5>
+            <h5>Email: {dentist?.email}</h5>
+            <h5>Phone number: {dentist?.phone}</h5>
             <h5>{dentist?.website}</h5>
-            <button className='favButton' onClick={addFav}>⭐</button>
+            <button className='favButton' onClick={addFav}>Favorite ⭐</button>
         </div>
-        <button onClick={() => navigate(-1)}>Go back</button>
+        <button className='navigationButton' onClick={() => navigate(-1)}>↩ Back</button>
       
     </div>
   )

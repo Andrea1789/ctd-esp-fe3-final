@@ -6,6 +6,7 @@ const Favs = () => {
 const {globalState} = useContextGlobal() 
 
   return (
+    <div className="favsContainer">
       <div className="card-grid">
         {globalState.favs?.map(dentist => (
             <Card 
@@ -16,7 +17,7 @@ const {globalState} = useContextGlobal()
           />
         ))}
       </div>
-    
+      </div>
   );
 };
 
