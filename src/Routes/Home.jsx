@@ -10,7 +10,6 @@ const { dentistList } = useContextGlobal();
 
   return (
     <main>
-      <h1>Home</h1>
       <div className='card-grid'>
         {dentistList.map(dentist => (
         <Card 

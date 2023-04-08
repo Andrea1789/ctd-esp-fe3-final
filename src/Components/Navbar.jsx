@@ -11,9 +11,9 @@ const toggleTheme = () => globalDispatch({ type: 'TOGGLE_THEME' });
 
 return (
   <nav>
-    <Link to='/'><h3>Home</h3></Link>
-    <Link to='/favs'><h3>Favs</h3></Link>
-    <Link to='/contact'><h3>Contact</h3></Link>
+    <Link to='/'><h5>Home</h5></Link>
+    <Link to='/favs'><h5>Favs</h5></Link>
+    <Link to='/contact'><h5>Contact</h5></Link>
 
 
     {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
