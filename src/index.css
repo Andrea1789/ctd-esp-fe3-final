@@ -61,11 +61,9 @@ nav .logo-nav span {
 }
 
 .btn-theme {
-  background-color: #d6d5d5;
+  background: none;
   border: none;
-  border-radius: 5px;
-  font-size: 24px;
-  padding: .2rem 1.5rem;
+  font-size: 20px;
 }
 
 a {
@@ -96,6 +94,12 @@ footer .logoDh {
   justify-content: center;
 }
 
+footer .social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
 .card-container {
   height: 68vh;
   display: flex;
@@ -112,7 +116,7 @@ footer .logoDh {
   width: 200px;
   padding: 1rem;
   border: 0.5px solid #ccc;
-  border-radius: 3px;
+  border-radius: 10px;
   background-color: #e3e3e3;
 }
 
@@ -120,7 +124,7 @@ footer .logoDh {
   width: 190px;
   height: 190px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 10px;
 }
 
 .card:hover {
@@ -161,16 +165,22 @@ footer .logoDh {
 }
 
 .favButton {
-  background-color: rgb(170 206 222);
-  padding: 10px;
+  background: none;
   border: none;
-  border-radius: 5px;
-  width: 100%;
   cursor: pointer;
+  align-self: flex-end;
 }
 
-.favButton:hover {
-  background-color: rgb(146 180 194);
+.favButton svg {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+
+.favButton svg:hover {
+  border-radius: 50%;
+  background-color: rgb(147 147 147);
+
 }
 
 .favs .action-favs {

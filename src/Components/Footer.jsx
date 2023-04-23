@@ -1,8 +1,5 @@
 import React from 'react'
-import Facebook from '../Assets/icons8-facebook-48.png'
-import Instagram from '../Assets/icons8-instagram-48.png'
-import Tiktok from '../Assets/icons8-tik-tok-48.png'
-import WhatsApp from '../Assets/icons8-whatsapp-48.png'
+import {BsFacebook, BsInstagram, BsTiktok, BsWhatsapp } from 'react-icons/bs'
 
 const Footer = () => {
 
@@ -16,16 +13,16 @@ const Footer = () => {
       </div>
         <div className="social">
           <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-            <img src={Facebook} alt="" />
+           <h3> <BsFacebook/> </h3>
           </a>
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-            <img src={Instagram} alt="" />
+            <h3>  <BsInstagram/> </h3>
           </a>
           <a href="https://www.tiktok.com/es/" target="_blank" rel="noopener noreferrer">
-            <img src={Tiktok} alt="" />
+            <h3> <BsTiktok/> </h3>
           </a>
           <a href="https://www.whatsapp.com/" target="_blank" rel="noopener noreferrer">
-            <img src={WhatsApp} alt="" />
+           <h3> <BsWhatsapp/> </h3>
           </a>
         </div>
     </footer>

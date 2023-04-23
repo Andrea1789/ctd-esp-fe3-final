@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContextGlobal } from "../Components/utils/global.context";
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 const Card = ({ dentists }) => {
   
@@ -24,8 +25,8 @@ const Card = ({ dentists }) => {
       <p>{username}</p>
     </Link>
       {!isfav 
-        ? <button onClick={addFav} className="favButton">Add fav ⭐️</button>
-        : <button onClick={removeFav} className="favButton">Remove fav ❌</button>
+        ? <button onClick={addFav} className="favButton"> <AiOutlineStar/> </button>
+        : <button onClick={removeFav} className="favButton"><AiFillStar/></button>
       }
       
   </div>

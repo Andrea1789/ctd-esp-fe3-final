@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useContextGlobal } from './utils/global.context';
+import {FaMoon, FaSun} from 'react-icons/fa'
 
 const Navbar = () => {
   const {state, dispatch} = useContextGlobal()
@@ -22,8 +23,8 @@ const Navbar = () => {
 
       <button onClick={changeTheme} className="btn-theme">
         {state.theme === "dark"
-          ? "🌓"
-          : "🌗"
+          ? <FaSun/>
+          : <FaMoon/>
         }
       </button>
       </div>
