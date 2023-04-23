@@ -5,20 +5,22 @@ import Home from "./Routes/Home";
 import Detail from "./Routes/Detail";
 import Favs from "./Routes/Favs";
 import Contact from "./Routes/Contact";
+import NotFound from "./Components/NotFound";
 import { useContextGlobal } from './Components/utils/global.context';
 
 function App() {
-const {globalState } = useContextGlobal();
+const { state } = useContextGlobal();
 
 
   return (
-      <div className={`${globalState.theme}`}>
+      <div className={state.theme + " App"}>
           <Navbar/>
             <Routes>
               <Route path='/' element={<Home/>}/>
               <Route path='/dentist/:id' element={<Detail/>}/>
               <Route path='/favs' element={<Favs/>}/>
               <Route path='/contact' element={<Contact/>}/>
+              <Route path="*" element={<NotFound />}/>
             </Routes>
           <Footer/>
       </div>

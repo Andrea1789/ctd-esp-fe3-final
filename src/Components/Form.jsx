@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const Form = () => {
   //Aqui deberan implementar el form completo con sus validaciones
-  const [user, setUser] = useState({
+  const [data, setData] = useState({
     name: '',
     email: ''
   })
@@ -13,13 +13,19 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g
-    let emailTest = emailRegex.test(user.email)
-    if(emailTest && user.name.length > 5){
-      setMessage(`Welcome ${user.name}!`);
-      setUser({ name: "", email: "" });
-    }else{
-      setMessage("Please enter a valid name and email.");
+    validateForm()
+  }
+
+  const validateForm = () =>{
+    let regex = new RegExp(/^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/);
+    
+    if(data.name.trim().length < 5){ //validate name
+      setMessage(<p className="form-error">Error: <br /> Name must have at least 5 characters</p>)
+    }else if(!regex.test(data.email)){ //validate email
+      setMessage(<p className="form-error">Error: <br /> Enter a valid email address</p>)
+    }else{ // succes
+      const text = <h4>Thanks {data.name}. We'll contact you via email </h4>
+      setMessage(text)
     }
   }
 
@@ -28,12 +34,12 @@ const Form = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="">Full Name</label>
         <input type="text" 
-          value={user.name}
-          onChange={(e) => setUser({...user, name: e.target.value})}/>
+          value={data.name}
+          onChange={(e) => setData({...data, name: e.target.value})}/>
         <label htmlFor="">Email</label>
         <input type="email" 
-          value={user.email}
-          onChange={(e) => setUser({...user, email: e.target.value})}/>
+          value={data.email}
+          onChange={(e) => setData({...data, email: e.target.value})}/>
         <button>Send</button>
       </form>
       <div>

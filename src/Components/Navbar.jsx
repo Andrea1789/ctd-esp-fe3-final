@@ -1,27 +1,34 @@
 import { Link } from 'react-router-dom'
 import { useContextGlobal } from './utils/global.context';
 
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Navbar = () => {
-const {globalState, globalDispatch} = useContextGlobal();
+  const {state, dispatch} = useContextGlobal()
+  const changeTheme = () =>{
+    !localStorage.getItem('theme') && localStorage.setItem('theme', state.theme)
+    localStorage.getItem('theme') === 'light'
+      ? dispatch({type: localStorage.getItem('theme'), payload: 'dark'})
+      : dispatch({type: localStorage.getItem('theme'), payload: 'light'})
+  }
 
-const toggleTheme = () => globalDispatch({ type: 'TOGGLE_THEME' });
+  return (
+    <nav>
+      <Link to='/'>
+        <h3 className='logo-nav'><span>D</span>H Odonto</h3>
+      </Link>
+      <div className="links">
+      <Link to='/'> Home</Link>
+      <Link to='/contact'> Contact</Link>
+      <Link to='/favs'> Favs</Link>
 
-return (
-  <nav>
-    <Link to='/'><h5>Home</h5></Link>
-    <Link to='/favs'><h5>Favs</h5></Link>
-    <Link to='/contact'><h5>Contact</h5></Link>
-
-
-    {/* Aqui deberan agregar los liks correspondientes a las rutas definidas */}
-    {/* Deberan implementar ademas la logica para cambiar de Theme con el button */}
-    
-    <button className='themeButton' onClick={toggleTheme}>{globalState.theme === "light"?'🌒' : '🌞'}</button>
-  </nav>
-)
+      <button onClick={changeTheme} className="btn-theme">
+        {state.theme === "dark"
+          ? "🌓"
+          : "🌗"
+        }
+      </button>
+      </div>
+    </nav>
+  )
 }
 
 export default Navbar

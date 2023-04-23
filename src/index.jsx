@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './Styles/DarkTheme.css'
+import './Styles/QueryMobile.css'
+import './Styles/Loader.css'
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import { Context } from './Components/utils/global.context';
+import ContextProvider  from './Components/utils/global.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-      <Context>
+      <ContextProvider>
         <App/>
-      </Context>
+      </ContextProvider>
   </BrowserRouter>
 );
 

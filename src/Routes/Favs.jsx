@@ -3,21 +3,22 @@ import Card from "../Components/Card";
 import { useContextGlobal } from "../Components/utils/global.context";
 
 const Favs = () => {
-const {globalState} = useContextGlobal() 
+  const {state, dispatch} = useContextGlobal()
+  const favs = state.favs
 
   return (
-    <div className="favsContainer">
-      <div className="card-grid">
-        {globalState.favs?.map(dentist => (
-            <Card 
-            key={dentist.id}
-            name={dentist.name}
-            username={dentist.username}
-            id={dentist.id}
-          />
-        ))}
-      </div>
-      </div>
+    <section className="favs">
+    <div className="action-favs">
+      <h2>Favs Dentists</h2>
+      {favs.length > 0 && <button onClick={() => {dispatch({type: "removeAllFavs"})}}>Remove all</button>}
+    </div>
+    <div className="card-grid">
+      {favs.length > 0
+        ? favs.map(fav => <Card key={fav.id} dentists={fav}/>)
+        : <p>You haven't added any favorites yet</p>
+      }
+    </div>
+  </section>
   );
 };
 
