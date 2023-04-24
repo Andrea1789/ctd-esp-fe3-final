@@ -30,8 +30,8 @@ const Form = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="form-container">
+      <form className="form-inputs" onSubmit={handleSubmit}>
         <label htmlFor="">Full Name</label>
         <input type="text" 
           value={data.name}
@@ -42,7 +42,7 @@ const Form = () => {
           onChange={(e) => setData({...data, email: e.target.value})}/>
         <button>Send</button>
       </form>
-      <div>
+      <div className="form-info">
       {message && <p>{message}</p>}
       </div>
     </div>

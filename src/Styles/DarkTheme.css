@@ -1,9 +1,9 @@
 .dark nav {
-    background: linear-gradient(20deg, rgb(34 34 34) 50%, rgba(136, 72, 72, 1) 100%);
+    background: linear-gradient(20deg, rgb(34 34 34) 40%, rgb(29, 28, 229) 100%);
 }
 
 .dark nav span {
-    color: #ee6565;
+    color: #1D1CE5;
 }
 
 .dark {
@@ -16,30 +16,28 @@
     color: white;
 }
 
-.dark .btn-theme {
-    background-color: #525252;
-}
 
 .dark .card {
     background-color: #525252;
     border: none;
+    box-shadow: none;
 }
 
 .dark .form-container .form-info {
-    border-right: 3px solid #834646;
+    border-right: 3px solid #1D1CE5;
 }
 
 .dark .form-container .form-inputs button {
-    background-color: #834646;
+    background-color: #1D1CE5;
 }
 
 .dark .form-container .form-inputs button:hover {
-    background-color: #754343;
+    background-color: #0096FF;
 }
 
 @media screen and (max-width: 768px) {
     .dark .form-container .form-info {
         border-right: none;
-        border-bottom: 3px solid #834646;
+        border-bottom: 3px solid #0096FF;
     }
 }
